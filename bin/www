@@ -8,11 +8,15 @@ var app = require('../app');
 var debug = require('debug')('learningnode:server');
 var http = require('http');
 var dotenv = require('dotenv')
+const connectDB = require('../db.js')
 
 /**
  * DotENV config
  */
 dotenv.config({ path: '.env' })
+
+// Connect to DB
+connectDB()
 
 /**
  * Get port from environment and store in Express.

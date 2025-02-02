@@ -1,0 +1,43 @@
+@startuml
+entity "students" {
+  _id: ObjectId
+}
+
+entity "personal_details" {
+  _id: ObjectId
+  student_id: students._id
+  first_name: String
+  last_name: String
+
+}
+
+entity "contacts" {
+  _id: ObjectId
+  student_id: students._id
+  email: String
+}
+
+entity "addresses" {
+  _id: ObjectId
+  street: String
+  city: String
+  state: String
+  zip: String
+}
+
+entity "orders" {
+  _id: ObjectId
+  student_id: students._id
+}
+
+entity "products" {
+  _id: ObjectId
+  name: String
+}
+
+students --> personal_details
+personal_details --> contacts
+personal_details --> addresses
+students --> orders
+orders --> products
+@enduml
